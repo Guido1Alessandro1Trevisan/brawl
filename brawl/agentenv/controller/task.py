@@ -25,8 +25,8 @@ class ExperienceOutput:
 
 
 class BaseTask:
-    env_client_cls: Callable[[Any], BaseEnvClient] = None
-    env_name: str = None
+    env_client_cls: Callable[[Any], BaseEnvClient] | None = None
+    env_name: str | None = None
 
     def __init__(
         self,

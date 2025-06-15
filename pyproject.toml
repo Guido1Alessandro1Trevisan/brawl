@@ -1,15 +1,24 @@
 [project]
-name = "brawl"
-version = "0.1.0"
+name = "brawl"               # fine to leave as-is (the wheel can be called "brawl"
+version = "0.1.0"            #   even if it ships both import trees)
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
-
-
+requires-python = ">=3.12"
 dependencies = [
-    "numpy>=2.3.0",
-    "pandas>=2.3.0",
-    "ray>=2.47.0",
-    "tensordict>=0.8.3",
-    "torch>=2.7.1",
+  "openai>=1.86.0",
+  "ray>=2.47.0",
+  "torch>=2.7.1",
+  "transformers>=4.52.4",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.setuptools.packages.find]
+# List every top-level package you want included
+include = [
+  "brawl", "brawl.*",
+  "verl",  "verl.*"
 ]

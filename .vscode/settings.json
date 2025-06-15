@@ -1,0 +1,11 @@
+{
+  // Used by the Python extension; Pylance follows along
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+
+  // (Optional) Help Pyright/Pylance locate that env when it starts
+  "python.analysis.venvPath": "${workspaceFolder}",
+  "python.analysis.venv": ".venv",
+
+  // (Handy) Tell Pylance to treat the package itself as import-root
+  "python.analysis.extraPaths": ["${workspaceFolder}"]
+}
