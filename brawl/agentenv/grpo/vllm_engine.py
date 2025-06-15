@@ -1,6 +1,7 @@
 
 import ray, torch
 
+import vllm 
 
 @ray.remote(num_gpus=1)
 class VLMEngine:
