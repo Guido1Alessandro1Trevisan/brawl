@@ -4,7 +4,7 @@ from typing import Any, Mapping, Dict
 import requests
 from requests.exceptions import RequestException
 
-from agentenv.controller import BaseEnvClient, BaseTask, ConversationMessage, StepOutput
+from brawl.agentenv.controller import BaseEnvClient, BaseTask, ConversationMessage, StepOutput
 
 
 class WebarenaEnvClient(BaseEnvClient):
