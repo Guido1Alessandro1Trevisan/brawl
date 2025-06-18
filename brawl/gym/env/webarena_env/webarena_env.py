@@ -6,9 +6,9 @@ import tempfile
 from pathlib import Path
 
 import ray
-from .webarena.browser_env import ScriptBrowserEnv, create_id_based_action
+from brawl.gym.env.webarena_env.webarena.browser_env import ScriptBrowserEnv, create_id_based_action
 
-from env.base_env import BaseEnvActor
+from brawl.gym.env.base_env import BaseEnvActor
 
 @ray.remote(num_cpus=1)
 class WebArenaEnvActor(BaseEnvActor):

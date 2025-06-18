@@ -1,13 +1,5 @@
 # drivers/async_driver.py
-"""
-Launch WebArena RL without lookup tables.
 
-• Creates a single vLLM policy actor (GPU)
-• Creates a PPOLearner actor (GPU) that pulls roll‑outs from a Ray Queue
-• Spawns N Collector actors (CPU) that interact with the browser env
-• Autoscaling logic adds/removes collectors based on GPU util & backlog
-"""
-from __future__ import annotations
 import asyncio
 from typing import List
 
@@ -17,8 +9,8 @@ from omegaconf import DictConfig, OmegaConf
 from ray.util.queue import Queue
 
 # ← direct imports, no registries
-from learners.ppo_learner import PPOLearner
-from policies.vllm_policy import VLLMPolicy
+from brawl.gym.learners.ppo_learner import PPOLearner
+from brawl.gym.policies.vllm_policy import VLLMPolicy
 from brawl.gym.workers.collector import Collector     # adjust if your path differs
 
 

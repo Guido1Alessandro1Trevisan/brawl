@@ -15,7 +15,7 @@ from verl import DataProto
 from verl.trainer.ppo.ray_trainer import compute_response_mask, apply_kl_penalty, compute_advantage
 from verl.trainer.ppo.ray_trainer import RayPPOTrainer
 
-from .base_learner import BaseLearner
+from brawl.gym.learners.base_learner import BaseLearner
 
 
 
