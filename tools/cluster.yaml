@@ -1,0 +1,55 @@
+# tools/cluster.yaml  – run with:  ray up tools/cluster.yaml -y
+cluster_name: wa-rl
+
+provider:
+  type: aws
+  region: us-east-1
+  availability_zone: us-east-1a
+
+auth:
+  ssh_user: ubuntu
+  ssh_private_key: ~/.ssh/wa-rl.pem
+
+head_node:
+  InstanceType: m6i.large
+  ImageId: ami-xxxxxxxx  # Ubuntu 22.04 + CUDA 12
+  IamInstanceProfile:
+    Name: wa-rl-profile
+  Placement:
+    GroupName: wa-rl-pg
+
+worker_nodes:
+  - name: gpu-group
+    InstanceType: g5.2xlarge
+    MinCount: 1
+    MaxCount: 1
+    Resources:
+      CPU: 8
+      GPU: 1
+    Placement:
+      GroupName: wa-rl-pg
+  - name: cpu-group
+    InstanceType: c6i.xlarge
+    MinCount: 0
+    MaxCount: 50
+    spot_price: "0.07"
+    Resources:
+      CPU: 4
+    Placement:
+      GroupName: wa-rl-pg
+
+file_mounts:
+  /home/ubuntu/app: .
+
+setup_commands:
+  - sudo apt-get update -y
+  - sudo apt-get install -y python3-pip git
+  - pip3 install --upgrade ray[default]==2.7.1 vllm verl playwright-core GPUtil torch \
+        --extra-index-url https://download.pytorch.org/whl/cu121
+  - playwright install chromium
+
+head_start_ray_commands:
+  - ray start --head --port=6379 --dashboard-host=0.0.0.0
+
+worker_start_ray_commands:
+  - ray start --address=$RAY_HEAD_IP:6379

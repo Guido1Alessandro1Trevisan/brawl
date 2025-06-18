@@ -1,0 +1,28 @@
+# conf/benchmark/webarena.yaml
+# Hydra config – all knobs in one file
+env:
+  name: webarena
+  headless: true
+  max_episodes: 10000
+
+policy:
+  name: vllm
+  model_id: deepseek-ai/deepseek-llm-7b-instruct
+  k: 4
+  gen_cfg:
+    max_tokens: 64
+    temperature: 0.7
+    top_p: 0.9
+
+learner:
+  name: ppo
+  cfg_path: "${hydra:runtime.cwd}/conf/ppo_browser.yaml"  # your verl config
+
+autoscale:
+  init_collectors: 8
+  queue_max: 8192
+  period_s: 10
+  target_gpu_util: 0.70
+  min_backlog: 512
+  max_backlog: 4096
+  step: 4
