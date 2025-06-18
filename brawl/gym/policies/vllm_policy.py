@@ -11,6 +11,7 @@ from vllm import LLM, SamplingParams
 
 from brawl.gym.policies.base_policy import BasePolicy
 
+# Goal for the future: Spin up a second VLLMPolicy actor with the new weights while the first keeps serving traffic; once ready, atomically update the reference held in the driver/collectors and kill the old actor.
 @ray.remote(num_gpus=1)
 class VLLMPolicy(BasePolicy):
 
