@@ -187,6 +187,7 @@ name = "brawl"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "gputil" },
     { name = "omegaconf" },
     { name = "openai" },
     { name = "ray" },
@@ -197,6 +198,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "gputil", specifier = ">=1.4.0" },
     { name = "omegaconf", specifier = ">=2.3.0" },
     { name = "openai", specifier = ">=1.86.0" },
     { name = "ray", specifier = ">=2.47.0" },
@@ -588,6 +590,12 @@ sdist = { url = "https://files.pythonhosted.org/packages/39/24/33db22342cf4a2ea2
 wheels = [
     { url = "https://files.pythonhosted.org/packages/86/f1/62a193f0227cf15a920390abe675f386dec35f7ae3ffe6da582d3ade42c7/googleapis_common_protos-1.70.0-py3-none-any.whl", hash = "sha256:b8bfcca8c25a2bb253e0e0b0adaf8c00773e5e6af6fd92397576680b807e0fd8", size = 294530, upload-time = "2025-04-14T10:17:01.271Z" },
 ]
+
+[[package]]
+name = "gputil"
+version = "1.4.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ed/0e/5c61eedde9f6c87713e89d794f01e378cfd9565847d4576fa627d758c554/GPUtil-1.4.0.tar.gz", hash = "sha256:099e52c65e512cdfa8c8763fca67f5a5c2afb63469602d5dcb4d296b3661efb9", size = 5545, upload-time = "2018-12-18T09:12:13.63Z" }
 
 [[package]]
 name = "grpcio"
