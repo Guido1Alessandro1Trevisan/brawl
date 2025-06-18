@@ -1564,7 +1564,7 @@ wheels = [
 
 [[package]]
 name = "openai"
-version = "1.86.0"
+version = "3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
