@@ -1,3 +1,4 @@
+# brawl/gym/env/webarena_env/webarena/agent/prompts/raw/p_direct_id_actree_3s_llama.py
 prompt = {
 	"intro": """You are an autonomous intelligent agent tasked with navigating a web browser. The actions you can perform fall into several categories:
 

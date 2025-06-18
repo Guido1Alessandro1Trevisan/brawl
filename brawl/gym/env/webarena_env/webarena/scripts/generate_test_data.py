@@ -1,3 +1,4 @@
+# brawl/gym/env/webarena_env/webarena/scripts/generate_test_data.py
 """Replace the website placeholders with website domains from env_config
 Generate the test data"""
 import json

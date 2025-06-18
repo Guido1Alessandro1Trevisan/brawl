@@ -1,3 +1,4 @@
+# brawl/gym/env/webarena_env/webarena/agent/__init__.py
 from .agent import (
     Agent,
     PromptAgent,

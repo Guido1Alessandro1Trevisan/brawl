@@ -1,3 +1,4 @@
+# brawl/gym/env/webarena_env/webarena/browser_env/auto_login.py
 """Script to automatically login each website"""
 import argparse
 import glob
