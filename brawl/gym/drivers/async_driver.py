@@ -69,7 +69,7 @@ async def driver(cfg: DictConfig) -> None:
 
 
 # ──────────────────────────────────────────────────────────────────────────
-@hydra.main(version_base=None, config_path="../conf", config_name="benchmark/webarena")
+@hydra.main(version_base=None, config_path="../../conf", config_name="benchmark/webarena")
 def main(cfg: DictConfig) -> None:
     """Hydra entry point (synchronous)."""
     print("Config\n------")
