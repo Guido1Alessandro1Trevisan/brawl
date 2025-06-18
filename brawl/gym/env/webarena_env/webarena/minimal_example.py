@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# brawl/gym/env/webarena_env/webarena/minimal_example.py
 # type: ignore
 
 import json

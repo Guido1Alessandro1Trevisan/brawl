@@ -1,3 +1,4 @@
+# brawl/gym/env/webarena_env/webarena/scripts/check_error_runs.py
 """Some executions may failed.
 This script checks the recordings, print the task ids.
 It deletes the recordings if needed."""

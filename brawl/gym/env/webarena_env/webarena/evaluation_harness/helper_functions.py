@@ -1,3 +1,4 @@
+# brawl/gym/env/webarena_env/webarena/evaluation_harness/helper_functions.py
 """Implements helper functions to assist evaluation cases where other evaluators are not suitable."""
 import json
 from typing import Any

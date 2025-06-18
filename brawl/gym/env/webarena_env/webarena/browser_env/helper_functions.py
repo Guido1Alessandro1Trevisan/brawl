@@ -1,3 +1,4 @@
+# brawl/gym/env/webarena_env/webarena/browser_env/helper_functions.py
 import base64
 import io
 import json

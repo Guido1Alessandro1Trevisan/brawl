@@ -1,3 +1,4 @@
+# brawl/gym/env/webarena_env/webarena/run.py
 """Script to run end-to-end evaluation on the benchmark"""
 import argparse
 import glob

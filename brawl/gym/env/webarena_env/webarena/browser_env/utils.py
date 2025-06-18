@@ -1,3 +1,4 @@
+# brawl/gym/env/webarena_env/webarena/browser_env/utils.py
 from dataclasses import dataclass
 from io import BytesIO
 from typing import Any, Dict, TypedDict, Union

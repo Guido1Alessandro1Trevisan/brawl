@@ -1,3 +1,4 @@
+# brawl/gym/env/webarena_env/webarena/scripts/collect_obs.py
 """Simple script to quickly get the observation of a page"""
 
 import json
