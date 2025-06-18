@@ -9,7 +9,7 @@ import hydra
 from omegaconf import DictConfig, OmegaConf
 from ray.util.queue import Queue
 
-from envs import ENV_REGISTRY
+
 from learners import LEARNER_REGISTRY
 from policies import POLICY_REGISTRY
 from brawl.gym.workers.collector import Collector
