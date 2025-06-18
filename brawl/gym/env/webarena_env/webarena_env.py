@@ -6,7 +6,7 @@ import tempfile
 from pathlib import Path
 
 import ray
-from webarena.browser_env import ScriptBrowserEnv, create_id_based_action
+from .webarena.browser_env import ScriptBrowserEnv, create_id_based_action
 
 from env.base_env import BaseEnvActor
 

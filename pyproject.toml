@@ -20,8 +20,12 @@ build-backend = "setuptools.build_meta"
 
 
 [tool.setuptools.packages.find]
-# List every top-level package you want included
 include = [
   "brawl", "brawl.*",
   "verl",  "verl.*"
+]
+
+[project.optional-dependencies]
+webarena = [
+  "webarena @ file:./brawl/gym/env/webarena_env/webarena"
 ]
