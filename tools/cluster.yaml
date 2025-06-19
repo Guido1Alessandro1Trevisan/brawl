@@ -17,17 +17,29 @@ head_node:
     Name: wa-rl-profile
   Placement:
     GroupName: wa-rl-pg
+  BlockDeviceMappings:
+    - DeviceName: /dev/sda1
+      Ebs:
+        VolumeSize: 200
+        VolumeType: gp3
+        DeleteOnTermination: true
 
 worker_nodes:
   - name: gpu-group
-    InstanceType: g5.2xlarge
+    InstanceType: p5.48xlarge
     MinCount: 1
     MaxCount: 1
     Resources:
-      CPU: 8
-      GPU: 1
+      CPU: 96
+      GPU: 8
     Placement:
       GroupName: wa-rl-pg
+    BlockDeviceMappings:
+      - DeviceName: /dev/sda1
+        Ebs:
+          VolumeSize: 1000
+          VolumeType: gp3
+          DeleteOnTermination: true
   - name: cpu-group
     InstanceType: c6i.xlarge
     MinCount: 0
@@ -37,6 +49,12 @@ worker_nodes:
       CPU: 4
     Placement:
       GroupName: wa-rl-pg
+    BlockDeviceMappings:
+      - DeviceName: /dev/sda1
+        Ebs:
+          VolumeSize: 100
+          VolumeType: gp3
+          DeleteOnTermination: true
 
 file_mounts:
   /home/ubuntu/app: .
