@@ -26,15 +26,21 @@ used to resolve locked dependencies stored in `uv.lock`.
 
 ## Running the async driver
 
-```
-# Start the WebArena environment and launch two workers listening on ports 8000+
-bash launch_servers.sh --env_name webarena --num_servers 2 --base_port 8000
+The repository includes helper scripts to launch a Ray cluster on AWS.
+After configuring `tools/cluster.yaml` run:
 
-# Alternatively only start the servers and run the Ray driver manually
-bash launch_servers.sh --only_servers &
-export AGENTGYM_SERVER_BASE="http://localhost:8000"
-CUDA_VISIBLE_DEVICES=0 python tools/grpo_autoscale.py --n_collectors 32
+```bash
+python tools/start_cluster.py
 ```
+
+This will spin up the cluster, sync the code and execute:
+
+```bash
+python -m brawl.gym.drivers.async_driver benchmark=webarena
+```
+
+To run the driver locally without AWS simply execute the same command in
+your Python environment.
 
 ## Project layout
 

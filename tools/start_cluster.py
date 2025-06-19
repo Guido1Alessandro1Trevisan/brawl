@@ -23,7 +23,7 @@ def main():
     sh(f"ray rsync_up {CLUSTER_YAML} {ROOT} /home/ubuntu/app -r")
     time.sleep(5)
     sh(
-        f'ray exec {CLUSTER_YAML} "cd /home/ubuntu/app && python -m drivers.async_driver benchmark=webarena" --screen'
+        f'ray exec {CLUSTER_YAML} "cd /home/ubuntu/app && python -m brawl.gym.drivers.async_driver benchmark=webarena" --screen'
     )
 
 
