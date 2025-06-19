@@ -62,4 +62,4 @@ import the modules or run `main.py` which prints a greeting.
 
 ## Large model checkpoints
 
-Training 70B parameter models fit well on an 8-GPU node. The cluster spec provisions p5.48xlarge workers with 1TB EBS storage for checkpoints. Set `default_hdfs_dir` to an S3 bucket if remote storage is needed; FSDP offloading is disabled by default.
+
