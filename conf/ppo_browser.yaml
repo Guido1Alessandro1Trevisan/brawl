@@ -260,10 +260,10 @@ actor_rollout_ref:
         min_num_params: 0
         
       # Whether to offload model parameters to CPU (trades speed for memory)
-      param_offload: false
+      param_offload: True
       
       # Whether to offload optimizer state to CPU
-      optimizer_offload: false
+      optimizer_offload: True
       
       # Only for FSDP2: offload param/grad/optimizer during train
       offload_policy: false
@@ -289,7 +289,7 @@ actor_rollout_ref:
     fsdp_config:
 
       # whether to offload parameters in FSDP
-      param_offload: False
+      param_offload: True
 
       # whether to perform reshard after model forward to save memory.
       # only for fsdp2, [True, False, int between 1 and fsdp_size]
@@ -542,10 +542,10 @@ critic:
     fsdp_config:
 
       # Whether to offload model parameters to CPU
-      param_offload: False
+      param_offload: True
 
       # Whether to offload optimizer state to CPU
-      optimizer_offload: False
+      optimizer_offload: True
 
       # Only for FSDP2: offload param/grad/optimizer during train
       offload_policy: False
@@ -676,7 +676,7 @@ reward_model:
         min_num_params: 0
 
       # Whether to offload model parameters to CPU
-      param_offload: False
+      param_offload: True
 
       # Only for FSDP2: Reshard after forward pass to reduce memory footprint
       reshard_after_forward: True
@@ -839,7 +839,7 @@ trainer:
   critic_warmup: 0
 
   # Default path to distributed filesystem for saving checkpoints
-  default_hdfs_dir: null
+  default_hdfs_dir: s3://brawl-checkpoints
 
   # Whether to delete local checkpoints after loading
   del_local_ckpt_after_load: False
