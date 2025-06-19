@@ -10,8 +10,8 @@ import ray
 from omegaconf import DictConfig
 from ray.util.queue import Queue, Empty, Full
 
-from envs import ENV_REGISTRY
-from policies.base_policy import BasePolicy
+from brawl.gym.env.webarena_env.webarena_env import WebArenaEnvActor
+from brawl.gym.policies.base_policy import BasePolicy
 
 
 @ray.remote(num_cpus=1)
@@ -24,8 +24,10 @@ class Collector:  # not protocol – concrete Ray actor
         policy: BasePolicy,
         traj_q: Queue,
     ):
-        env_cls = ENV_REGISTRY[cfg.env.name]
-        self.env = env_cls.options(num_cpus=1).remote(headless=cfg.env.headless)
+        # currently only a WebArena environment is implemented
+        self.env = WebArenaEnvActor.options(num_cpus=1).remote(
+            headless=cfg.env.headless
+        )
         self.policy = policy
         self.k = cfg.policy.k
         self.q = traj_q

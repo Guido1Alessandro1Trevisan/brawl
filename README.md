@@ -26,15 +26,59 @@ used to resolve locked dependencies stored in `uv.lock`.
 
 ## Running the async driver
 
-```
-# Start the WebArena environment and launch two workers listening on ports 8000+
-bash launch_servers.sh --env_name webarena --num_servers 2 --base_port 8000
+The repository includes helper scripts to launch a Ray cluster on AWS.
+After configuring `tools/cluster.yaml` run:
 
-# Alternatively only start the servers and run the Ray driver manually
-bash launch_servers.sh --only_servers &
-export AGENTGYM_SERVER_BASE="http://localhost:8000"
-CUDA_VISIBLE_DEVICES=0 python tools/grpo_autoscale.py --n_collectors 32
+```bash
+python tools/start_cluster.py
 ```
+
+This will spin up the cluster, sync the code and execute:
+
+```bash
+python -m brawl.gym.drivers.async_driver benchmark=webarena
+```
+
+To run the driver locally without AWS simply execute the same command in
+your Python environment.
+
+### AWS quotas and setup
+
+The default `cluster.yaml` requests one `g5.2xlarge` GPU worker and up to
+fifty `c6i.xlarge` CPU workers in addition to the head node. Make sure your
+AWS account has quotas for these instance types before launching the cluster.
+1. Request at least **1× g5.2xlarge** instance in your chosen region.
+2. Request **1× m6i.large** and up to **50× c6i.xlarge** instances.
+3. Create a placement group named `wa-rl-pg` and an IAM profile called
+   `wa-rl-profile`.
+
+Once the quotas are approved, run `python tools/start_cluster.py` to create the
+cluster and launch the driver. The script automatically uploads your code and
+starts the training run on the head node.
+
+### Experiment tracking
+
+Training metrics are logged to [Weights & Biases](https://wandb.ai). To enable
+logging:
+
+1. Install the `wandb` Python package (already listed in `pyproject.toml`).
+2. Authenticate by running `wandb login` and pasting your API key when
+   prompted, or export it directly:
+
+ ```bash
+  export WANDB_API_KEY="YOUR_API_KEY"
+  ```
+
+Alternatively create a `.env` file in the repository root with:
+
+```bash
+WANDB_API_KEY=YOUR_API_KEY
+```
+
+The driver loads this file automatically when starting.
+
+Once logged in, metrics will appear under the project and experiment names
+specified in `conf/ppo_browser.yaml`.
 
 ## Project layout
 
