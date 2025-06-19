@@ -42,6 +42,7 @@ python -m brawl.gym.drivers.async_driver benchmark=webarena
 To run the driver locally without AWS simply execute the same command in
 your Python environment.
 
+
 ## Project layout
 
 ```

@@ -4,6 +4,10 @@
 import asyncio
 from typing import List
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 import hydra
 import ray
 from omegaconf import DictConfig, OmegaConf
