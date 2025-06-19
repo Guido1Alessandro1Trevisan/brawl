@@ -20,7 +20,7 @@ head_node:
   BlockDeviceMappings:
     - DeviceName: /dev/sda1
       Ebs:
-        VolumeSize: 500
+        VolumeSize: 200
         VolumeType: gp3
         DeleteOnTermination: true
 
@@ -37,7 +37,7 @@ worker_nodes:
     BlockDeviceMappings:
       - DeviceName: /dev/sda1
         Ebs:
-          VolumeSize: 2000
+          VolumeSize: 1000
           VolumeType: gp3
           DeleteOnTermination: true
   - name: cpu-group
@@ -52,7 +52,7 @@ worker_nodes:
     BlockDeviceMappings:
       - DeviceName: /dev/sda1
         Ebs:
-          VolumeSize: 200
+          VolumeSize: 100
           VolumeType: gp3
           DeleteOnTermination: true
 

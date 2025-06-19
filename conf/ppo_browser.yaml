@@ -260,10 +260,10 @@ actor_rollout_ref:
         min_num_params: 0
         
       # Whether to offload model parameters to CPU (trades speed for memory)
-      param_offload: True
+      param_offload: False
       
       # Whether to offload optimizer state to CPU
-      optimizer_offload: True
+      optimizer_offload: False
       
       # Only for FSDP2: offload param/grad/optimizer during train
       offload_policy: false

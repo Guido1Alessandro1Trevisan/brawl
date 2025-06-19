@@ -62,8 +62,4 @@ import the modules or run `main.py` which prints a greeting.
 
 ## Large model checkpoints
 
-Training with models reaching hundreds of billions of parameters requires ample
-disk space and remote storage.  `tools/cluster.yaml` now provisions large EBS
-volumes on the head and worker nodes.  Set `default_hdfs_dir` in
-`conf/ppo_browser.yaml` to an S3 bucket (e.g. `s3://brawl-checkpoints`) and
-enable FSDP parameter offloading to store massive checkpoints.
+
